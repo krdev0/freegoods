@@ -1,0 +1,1 @@
+<h1>This is single item view {{dd($data)}}</h1>
