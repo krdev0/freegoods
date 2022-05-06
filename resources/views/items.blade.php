@@ -1,15 +1,15 @@
-<h1>
-    {{ $heading }}
-</h1>
+@extends('layout')
+
+@section('content')
 
 @if (count($items) === 0)
     <p>No items found!</p>
 @else 
 @foreach ($items as $item)
-    <span style="font-weight: bold;">
-    {{ $item['title'] }}
-</span>
-
+    <h3 style="font-weight: bold;">
+        {{ $item['title'] }}
+    </h3>
+    <span> {{ $item['location']}} </span>
 <p>
     {{ $item['description'] }}
 </p>
@@ -18,4 +18,4 @@
 @endforeach
 @endif
 
-
+@endsection
