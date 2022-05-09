@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('partials._search')
+
 <div class="lg:grid lg:grid-cols-3 gap-3 space-y-4 md:space-y-0 mx-4">
 
 @if (count($items) === 0)
@@ -12,13 +14,13 @@
      <div class="bg-gray-50 border border-gray-200 rounded p-6">
         <div class="flex">
             <img
-                class="hidden w-24 mr-6 md:block"
+                class="hidden w-20 mr-6 md:block"
                 src="{{ asset('images/item.svg') }}"
                 alt=""
             />
             <div>
                 <h3 class="text-xl">
-                    <a href="show.html">{{ $item->title }}</a>
+                    <a href="/item/{{ $item->id }}">{{ $item->title }}</a>
                 </h3>
                 <ul class="flex">
                     <li

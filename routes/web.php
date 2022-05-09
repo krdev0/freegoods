@@ -14,5 +14,5 @@ Route::get('/', function () {
 
 //Single listing
 Route::get('/item/{id}', function ($id) {
-    return view('item', ['data' => Item::find($id)]);
+    return view('item', ['item' => Item::find($id)]);
 });
