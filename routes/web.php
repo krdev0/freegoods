@@ -13,6 +13,6 @@ Route::get('/', function () {
 });
 
 //Single listing
-Route::get('/item/{id}', function ($id) {
-    return view('item', ['item' => Item::find($id)]);
+Route::get('/item/{item}', function (Item $item) {
+    return view('item', ['item' => $item]);
 });
