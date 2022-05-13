@@ -1,7 +1,4 @@
-@extends('layout')
-
-@section('content')
-
+<x-layout>
 <div class="mx-4">
     <x-card class="p-10">
         <div
@@ -13,7 +10,7 @@
                 <li
                     class="bg-black text-white rounded-xl px-3 py-1 mr-2"
                 >
-                    <a href="#">{{ $item->category }}</a>
+                    <a href="/?category={{ $item->category }}">{{ $item->category }}</a>
                 </li>
             </ul>
             <div class="text-lg my-4">
@@ -35,5 +32,4 @@
         </div>
     </x-card>
 </div>
-
-@endsection
+</x-layout>

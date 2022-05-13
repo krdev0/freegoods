@@ -17,9 +17,9 @@ class ItemFactory extends Factory
     public function definition()
     {
         return [
-            'title' => 'Free Item - Computer',
+            'title' => $this->faker->text($maxNbChars = 15),
             'description' => $this->faker->paragraph(5),
-            'category' => 'category',
+            'category' => 'Electronics',
             'location' => 'Riga',
         ];
     }

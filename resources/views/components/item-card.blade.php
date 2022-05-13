@@ -15,7 +15,7 @@
                 <li
                     class="flex items-center justify-center bg-black text-white rounded-xl py-1 px-3 mr-2 text-xs"
                 >
-                    <a href="#">{{ $item->category }}</a>
+                    <a href="/?category={{ $item->category }}">{{ $item->category }}</a>
                 </li>
             </ul>
             <div class="text-lg mt-4">
