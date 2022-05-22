@@ -23,4 +23,26 @@ class ItemController extends Controller
             'item' => $item
         ]);
     }
+
+
+    //Show create form
+    public function create()
+    {
+        return view('items.create');
+    }
+
+    //Store item data
+    public function store(Request $request)
+    {
+        $formFields = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'category' => 'required',
+            'location' => 'required'
+        ]);
+
+        Item::create($formFields);
+
+        return redirect('/')->with('success', 'Item created successfully');
+    }
 }

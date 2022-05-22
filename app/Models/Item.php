@@ -9,6 +9,8 @@ class Item extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title', 'description', 'category', 'location'];
+
     public function scopeFilter($query, array $filters)
     {
         if ($filters['category'] ?? false) {

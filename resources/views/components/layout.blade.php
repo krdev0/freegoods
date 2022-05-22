@@ -13,6 +13,7 @@
             referrerpolicy="no-referrer"
         />
         <script src="https://cdn.tailwindcss.com"></script>
+        <script src="//unpkg.com/alpinejs" defer></script>
         <title>GiveAway Items</title>
     </head>
 <body>
@@ -35,7 +36,7 @@
         </ul>
     </nav>
 
-    <main>
+    <main class="max-w-5xl m-auto">
         {{ $slot }}
     </main>
 
@@ -43,6 +44,9 @@
             class="w-full flex items-center justify-start font-bold bg-laravel bg-yellow-500 text-white h-24 mt-24 opacity-90 md:justify-center"
         >
             <p class="ml-2">Copyright &copy; 2022, All Rights reserved</p>
+            <a class="bg-red-900 ml-4 p-2" href="/item/create">Post Item</a>
         </footer>
+
+    <x-flash-message />
 </body>
 </html>
