@@ -11,6 +11,13 @@ class Item extends Model
 
     public function scopeFilter($query, array $filters)
     {
-        dd($filters['category']);
+        if ($filters['category'] ?? false) {
+            $query->where('category', 'like', '%' . request('category') . '%');
+        }
+
+        if ($filters['search'] ?? false) {
+            $query->where('title', 'like', '%' . request('search') . '%')
+                ->orWhere('description', 'like', '%' . request('search') . '%');
+        }
     }
 }

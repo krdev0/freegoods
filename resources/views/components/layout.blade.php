@@ -18,7 +18,7 @@
 <body>
     <nav class="flex justify-between items-center mb-4 bg-yellow-500 p-2">
         <a href="/">
-            <img class="w-24" src="{{ asset('images/placeholder-logo.svg') }}" alt="site-logo" class="logo"/>
+            <span class="text-black-900 font-bold text-4xl">Giveaway</span>
         </a>
         <ul class="flex space-x-6 mr-6 text-lg">
             <li>
