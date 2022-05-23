@@ -12,7 +12,7 @@ class ItemController extends Controller
     public function index()
     {
         return view('items.index', [
-            'items' => Item::latest()->filter(request(['category', 'search']))->get(),
+            'items' => Item::latest()->filter(request(['category', 'search']))->paginate(9),
         ]);
     }
 
@@ -40,6 +40,10 @@ class ItemController extends Controller
             'category' => 'required',
             'location' => 'required'
         ]);
+
+        if ($request->hasFile('image')) {
+            $formFields['image'] = $request->file('image')->store('images', 'public');
+        }
 
         Item::create($formFields);
 

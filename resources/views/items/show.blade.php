@@ -6,6 +6,7 @@
         >
 
             <h3 class="text-2xl mb-2">{{ $item->title }}</h3>
+            <img class="mb-2" src="{{ $item->image ? asset('storage/' . $item->image) : asset('images/item.svg') }}" alt="">
             <ul class="flex">
                 <li
                     class="bg-black text-white rounded-xl px-3 py-1 mr-2"

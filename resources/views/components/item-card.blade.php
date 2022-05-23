@@ -4,7 +4,7 @@
     <div class="flex">
         <img
             class="hidden w-20 mr-6 md:block"
-            src="{{ asset('images/item.svg') }}"
+            src="{{ $item->image ? asset('storage/' . $item->image) : asset('images/item.svg') }}"
             alt=""
         />
         <div>
