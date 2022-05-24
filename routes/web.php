@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ItemController;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\UserController;
 
 // All listings
 Route::get('/', [ItemController::class, 'index']);
@@ -19,3 +20,7 @@ Route::get('item/{item}/edit', [ItemController::class, 'edit']);
 Route::put('item/{item}', [ItemController::class, 'update']);
 //Delete item
 Route::delete('item/{item}', [ItemController::class, 'destroy']);
+
+
+//Show register form
+Route::get('/register', [UserController::class, 'create']);
