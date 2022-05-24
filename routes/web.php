@@ -16,3 +16,10 @@ Route::post('/item', [ItemController::class, 'store']);
 
 //Single listing
 Route::get('/item/{item}', [ItemController::class, 'show']);
+
+//Edit item form
+Route::get('item/{item}/edit', [ItemController::class, 'edit']);
+//Update item
+Route::put('item/{item}', [ItemController::class, 'update']);
+//Delete item
+Route::delete('item/{item}', [ItemController::class, 'destroy']);

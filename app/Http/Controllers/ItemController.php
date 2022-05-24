@@ -49,4 +49,35 @@ class ItemController extends Controller
 
         return redirect('/')->with('success', 'Item created successfully');
     }
+
+    //Show edit form
+    public function edit(Item $item)
+    {
+        return view('items.edit', ['item' => $item]);
+    }
+
+    //Update item data
+    public function update(Request $request, Item $item)
+    {
+        $formFields = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'category' => 'required',
+            'location' => 'required'
+        ]);
+
+        if ($request->hasFile('image')) {
+            $formFields['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        $item->update($formFields);
+
+        return back()->with('success', 'Item updated successfully');
+    }
+
+    public function destroy(Item $item)
+    {
+        $item->delete();
+        return redirect('/')->with('success', 'Item deleted successfully');
+    }
 }

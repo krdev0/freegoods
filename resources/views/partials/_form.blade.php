@@ -28,7 +28,6 @@
             class="border border-gray-200 rounded p-2 w-full"
             name="description"
             rows="5"
-            value="{{old('description')}}"
         >{{old('description')}}</textarea>
         @error('description')
             <p class="text-red-900 text-xs mt-1">{{$message}}</p>
