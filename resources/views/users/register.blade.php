@@ -7,15 +7,20 @@
     <form action="/user" method="POST">
         @csrf
         <label
-            for="fullname"
+            for="full_name"
             class="inline-block text-lg mb-2"
             >Full Name</label
         >
         <input
             type="text"
             class="border border-gray-200 rounded p-2 w-full"
-            name="fullname"
+            name="full_name"
+            value="{{old('full_name')}}"
         />
+
+        @error('full_name')
+            <p class="text-red-900 text-xs mt-1">{{$message}}</p>
+        @enderror
 
         <label
             for="username"
@@ -26,7 +31,12 @@
             type="text"
             class="border border-gray-200 rounded p-2 w-full"
             name="username"
+            value="{{old('username')}}"
         />
+
+        @error('username')
+            <p class="text-red-900 text-xs mt-1">{{$message}}</p>
+        @enderror
 
         <label
             for="email"
@@ -37,18 +47,69 @@
             type="email"
             class="border border-gray-200 rounded p-2 w-full"
             name="email"
+            value="{{old('email')}}"
         />
 
+        @error('email')
+            <p class="text-red-900 text-xs mt-1">{{$message}}</p>
+        @enderror
+
         <label
-            for="number"
+            for="telephone"
             class="inline-block text-lg mb-2"
             >Telephone Number</label
         >
         <input
-            type="text"
+            type="tel"
+            pattern="[0-9]{8}"
             class="border border-gray-200 rounded p-2 w-full"
-            name="number"
+            name="telephone"
+            value="{{old('telephone')}}"
         />
+
+        @error('telephone')
+            <p class="text-red-900 text-xs mt-1">{{$message}}</p>
+        @enderror
+
+        <label
+            for="password"
+            class="inline-block text-lg mb-2"
+            >Password</label
+        >
+        <input
+            type="password"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="password"
+        />
+
+        @error('password')
+            <p class="text-red-900 text-xs mt-1">{{$message}}</p>
+        @enderror
+
+        <label
+            for="password_confirmation"
+            class="inline-block text-lg mb-2"
+            >Confirm Password</label
+        >
+        <input
+            type="password"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="password_confirmation"
+        />
+
+        @error('password_confirmation')
+            <p class="text-red-900 text-xs mt-1">{{$message}}</p>
+        @enderror
+
+        <div class="mt-6 flex flex-col items-center w-48">
+            <button
+                class="w-full bg-yellow-500 text-white rounded py-2 px-4 hover:bg-yellow-600"
+            >
+                Register
+            </button>
+
+            <p class="mt-2">Already have an account? <a href="/login" class="text-blue-400">Login</a></p>
+        </div>
     </form>
     </x-card>
 </x-layout>

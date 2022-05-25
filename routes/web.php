@@ -24,3 +24,9 @@ Route::delete('item/{item}', [ItemController::class, 'destroy']);
 
 //Show register form
 Route::get('/register', [UserController::class, 'create']);
+//Create new user
+Route::post('/user', [UserController::class, 'store']);
+//Log user out
+Route::post('/logout', [UserController::class, 'logout']);
+//Show login form
+Route::get('/login', [UserController::class, 'login']);
