@@ -4,7 +4,7 @@
         <h1 class="text-4xl font-bold">Login into your account</h1>
     </div>
 
-    <form action="/users/login" method="POST">
+    <form action="/user/authenticate" method="POST">
         @csrf
 
         <label
@@ -16,6 +16,7 @@
             type="email"
             class="border border-gray-200 rounded p-2 w-full"
             name="email"
+            value="{{old('email')}}"
         />
 
         @error('email')

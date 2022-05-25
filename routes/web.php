@@ -6,27 +6,29 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
 
-// All listings
+// All items
 Route::get('/', [ItemController::class, 'index']);
 //Show new item form
-Route::get('/item/create', [ItemController::class, 'create']);
+Route::get('/item/create', [ItemController::class, 'create'])->middleware('auth');
 // Store new item data
-Route::post('/item', [ItemController::class, 'store']);
-//Single listing
+Route::post('/item', [ItemController::class, 'store'])->middleware('auth');
+//Single item
 Route::get('/item/{item}', [ItemController::class, 'show']);
 //Edit item form
-Route::get('item/{item}/edit', [ItemController::class, 'edit']);
+Route::get('item/{item}/edit', [ItemController::class, 'edit'])->middleware('auth');
 //Update item
-Route::put('item/{item}', [ItemController::class, 'update']);
+Route::put('item/{item}', [ItemController::class, 'update'])->middleware('auth');
 //Delete item
-Route::delete('item/{item}', [ItemController::class, 'destroy']);
+Route::delete('item/{item}', [ItemController::class, 'destroy'])->middleware('auth');
 
 
 //Show register form
-Route::get('/register', [UserController::class, 'create']);
+Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 //Create new user
 Route::post('/user', [UserController::class, 'store']);
 //Log user out
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 //Show login form
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+//Log in user
+Route::post('/user/authenticate', [UserController::class, 'authenticate']);
