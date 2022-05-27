@@ -45,6 +45,8 @@ class ItemController extends Controller
             $formFields['image'] = $request->file('image')->store('images', 'public');
         }
 
+        $formFields['user_id'] = auth()->id();
+
         Item::create($formFields);
 
         return redirect('/')->with('success', 'Item created successfully');

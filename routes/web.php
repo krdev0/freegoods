@@ -32,3 +32,5 @@ Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 //Log in user
 Route::post('/user/authenticate', [UserController::class, 'authenticate']);
+//Manage profile
+Route::get('/profile', [UserController::class, 'manage'])->middleware('auth');

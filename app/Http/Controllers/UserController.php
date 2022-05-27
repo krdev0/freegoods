@@ -77,4 +77,11 @@ class UserController extends Controller
 
         return back()->withErrors(['email' => 'Invalid credentials'])->onlyInput('email');
     }
+
+    public function manage()
+    {
+        return view('users.manage', [
+            'user' => auth()->user()
+        ]);
+    }
 }
