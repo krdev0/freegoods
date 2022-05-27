@@ -81,7 +81,8 @@ class UserController extends Controller
     public function manage()
     {
         return view('users.manage', [
-            'user' => auth()->user()
+            'user' => auth()->user(),
+            // 'items' => auth()->user()->items()->get() //TODO: add all user created items here
         ]);
     }
 }

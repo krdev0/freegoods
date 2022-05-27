@@ -12,7 +12,7 @@ class ItemController extends Controller
     public function index()
     {
         return view('items.index', [
-            'items' => Item::latest()->filter(request(['category', 'search']))->paginate(9),
+            'items' => Item::latest()->filter(request(['category', 'search']))->paginate(15),
         ]);
     }
 
