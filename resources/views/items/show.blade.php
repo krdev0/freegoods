@@ -1,16 +1,12 @@
 <x-layout>
-<div class="mx-4">
-    <x-card class="p-10">
-        <div
-            class="flex flex-col items-center justify-center text-center"
-        >
+    <div class="mx-4">
+        <div class="flex flex-col items-center justify-center text-center">
 
             <h3 class="text-2xl mb-2">{{ $item->title }}</h3>
-            <img class="mb-2" src="{{ $item->image ? asset('storage/' . $item->image) : asset('images/item.svg') }}" alt="">
+            <img class="mb-2"
+                src="{{ $item->image ? asset('storage/' . $item->image) : asset('images/item.svg') }}" alt="">
             <ul class="flex">
-                <li
-                    class="bg-black text-white rounded-xl px-3 py-1 mr-2"
-                >
+                <li class="bg-black text-white rounded-xl px-3 py-1 mr-2">
                     <a href="/?category={{ $item->category }}">{{ $item->category }}</a>
                 </li>
             </ul>
@@ -22,15 +18,12 @@
                 <div class="text-lg space-y-6">
                     <p>{{ $item->description }}</p>
 
-                    <a
-                        href="mailto:test@test.com"
-                        class="block bg-yellow-300 text-white mt-6 py-2 rounded-xl hover:opacity-80"
-                        ><i class="fa-solid fa-envelope"></i>
-                        Contact</a
-                    >
+                    <a href="mailto:test@test.com"
+                        class="block bg-yellow-300 text-white mt-6 py-2 rounded-xl hover:opacity-80"><i
+                            class="fa-solid fa-envelope"></i>
+                        Contact</a>
                 </div>
             </div>
         </div>
-    </x-card>
-</div>
+    </div>
 </x-layout>

@@ -16,7 +16,7 @@
 
             <div class="mt-auto flex justify-between">
                 <a href="/item/{{ $item->id }}" class="text-sm text-blue-400">Open</a>
-                <div class="flex items-center text-sm"><i class="fa-solid fa-location-dot mr-1"></i>
+                <div class="flex items-center text-sm"><i class="fa-solid fa-location-arrow mr-1"></i>
                     <span class="capitalize">{{ $item->location }}</span>
                 </div>
             </div>

@@ -8,6 +8,9 @@
                 <span class="font-bold">Welcome, {{ auth()->user()->full_name }}</span>
             </li>
             <li>
+                <a href="/item/create">Add item</a>
+            </li>
+            <li>
                 <a href="/profile">
                     <i class="fa-solid fa-circle-user"></i> Profile
                 </a>

@@ -37,13 +37,19 @@ class ItemController extends Controller
         $formFields = $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'images' => 'required',
             'category' => 'required',
             'location' => 'required'
         ]);
 
-        if ($request->hasFile('image')) {
-            $formFields['image'] = $request->file('image')->store('images', 'public');
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $image->store('images', 'public');
+                // dd($image);
+            }
         }
+
+        dd($formFields);
 
         $formFields['user_id'] = auth()->id();
 

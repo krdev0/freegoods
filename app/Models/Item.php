@@ -9,7 +9,7 @@ class Item extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'user_id', 'description', 'category', 'location', 'image'];
+    protected $fillable = ['title', 'user_id', 'description', 'category', 'images', 'location'];
 
     public function scopeFilter($query, array $filters)
     {
