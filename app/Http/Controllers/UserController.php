@@ -82,7 +82,7 @@ class UserController extends Controller
     {
         return view('users.manage', [
             'user' => auth()->user(),
-            // 'items' => auth()->user()->items()->get() //TODO: add all user created items here
+            'items' => auth()->user()->items()->get() //TODO: add all user created items here
         ]);
     }
 }

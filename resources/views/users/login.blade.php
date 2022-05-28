@@ -40,7 +40,7 @@
 
         <div class="mt-6 flex flex-col items-center w-48">
             <button
-                class="w-full bg-yellow-500 text-white rounded py-2 px-4 hover:bg-yellow-600"
+                class="w-full bg-yellow-300 text-white rounded py-2 px-4 hover:bg-yellow-600"
             >
                 Log In
             </button>

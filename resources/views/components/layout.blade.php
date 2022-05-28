@@ -17,7 +17,7 @@
         <title>GiveAway Items</title>
     </head>
 <body>
-    <nav class="flex justify-between items-center mb-4 bg-yellow-500 p-2">
+    <nav class="flex justify-between items-center mb-4 bg-yellow-300 p-2">
         <a href="/">
             <span class="text-black-900 font-bold text-4xl">Giveaway</span>
         </a>
@@ -27,15 +27,14 @@
                 <span class="font-bold">Welcome, {{auth()->user()->full_name}}</span>
             </li>
             <li>
-                <a href="/profile"
-                    ><i class="fa-solid fa-gear"></i>
-                    Profile</a
-                >
+                <a href="/profile">
+                    <i class="fa-solid fa-circle-user"></i> Profile
+                </a>
             </li>
             <li>
                 <form class="inline" action="/logout" method="POST">
                     @csrf
-                    <button type="submit" class=""><i class="fa-solid fa-door-closed"></i> Logout</button>
+                    <button type="submit" class=""><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button>
                 </form>
             </li>
 
@@ -60,7 +59,7 @@
     </main>
 
     <footer
-            class="w-full flex items-center justify-start font-bold bg-laravel bg-yellow-500 text-white h-24 mt-24 opacity-90 md:justify-center"
+            class="w-full flex items-center justify-start font-bold bg-laravel bg-yellow-300 text-white h-24 mt-24 opacity-90 md:justify-center"
         >
             <p class="ml-2">Copyright &copy; 2022, All Rights reserved</p>
             <a class="bg-red-900 ml-4 p-2" href="/item/create">Post Item</a>

@@ -24,22 +24,13 @@
 
                     <a
                         href="mailto:test@test.com"
-                        class="block bg-yellow-500 text-white mt-6 py-2 rounded-xl hover:opacity-80"
+                        class="block bg-yellow-300 text-white mt-6 py-2 rounded-xl hover:opacity-80"
                         ><i class="fa-solid fa-envelope"></i>
                         Contact</a
                     >
                 </div>
             </div>
         </div>
-    </x-card>
-    <x-card class="mt-4 p-2 flex space-x-6">
-        <a href="/item/{{$item->id}}/edit"><i class="fa-solid fa-pencil mr-2"></i>Edit Item</a>
-
-        <form method="POST" action="/item/{{$item->id}}">
-            @csrf
-            @method('DELETE')
-            <button class="text-red-500"><i class="fa-solid fa-trash mr-2"></i>Delete</button>
-        </form>
     </x-card>
 </div>
 </x-layout>

@@ -12,7 +12,7 @@ class ItemController extends Controller
     public function index()
     {
         return view('items.index', [
-            'items' => Item::latest()->filter(request(['category', 'search']))->paginate(15),
+            'items' => Item::latest()->filter(request(['category', 'search']))->paginate(14),
         ]);
     }
 
@@ -61,6 +61,11 @@ class ItemController extends Controller
     //Update item data
     public function update(Request $request, Item $item)
     {
+        //Make sure logged in user is owner
+        if ($item->user_id != auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
         $formFields = $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -79,6 +84,11 @@ class ItemController extends Controller
 
     public function destroy(Item $item)
     {
+        //Make sure logged in user is owner
+        if ($item->user_id != auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
         $item->delete();
         return redirect('/')->with('success', 'Item deleted successfully');
     }
