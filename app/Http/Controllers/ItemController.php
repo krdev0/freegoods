@@ -12,16 +12,19 @@ class ItemController extends Controller
     public function index()
     {
         return view('items.index', [
-            'items' => Item::latest()->filter(request(['category', 'search']))->paginate(8),
+            'items' => Item::latest()
+                ->filter(request(['category', 'search']))
+                ->paginate(8),
         ]);
     }
 
     //Show single listing
     public function show(Item $item)
     {
+        //TODO: conver img strings to array 
         return view('items.show', [
             'item' => $item
-        ]);
+        ])->with('images', json_decode($item['images']));
     }
 
 
@@ -42,14 +45,15 @@ class ItemController extends Controller
             'location' => 'required'
         ]);
 
+
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
-                $image->store('images', 'public');
-                // dd($image);
+                $name = $image->store('images', 'public');
+                $data[] = $name;
             }
         }
 
-        dd($formFields);
+        $formFields['images'] = json_encode($data);
 
         $formFields['user_id'] = auth()->id();
 

@@ -29,6 +29,8 @@
     @include('partials._footer')
 
     <x-flash-message />
+
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>

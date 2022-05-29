@@ -3,8 +3,28 @@
         <div class="flex flex-col items-center justify-center text-center">
 
             <h3 class="text-2xl mb-2">{{ $item->title }}</h3>
-            <img class="mb-2"
-                src="{{ $item->image ? asset('storage/' . $item->image) : asset('images/item.svg') }}" alt="">
+            @if (isset($images))
+                @if (count($images) > 3)
+                    <section class="splide" aria-label="Splide Basic HTML Example">
+                        <div class="splide__track">
+                            <div class="splide__list">
+                                @foreach ($images as $image)
+                                    <img class="mb-2 splide__slide"
+                                        src="{{ $image ? asset('storage/' . $image) : asset('images/pc-front.jpg') }}"
+                                        alt="">
+                                @endforeach
+                            </div>
+                        </div>
+                    </section>
+                @else
+                    <div>
+                        @foreach ($images as $image)
+                            <img class="mb-2 splide__slide"
+                                src="{{ $image ? asset('storage/' . $image) : asset('images/pc-front.jpg') }}" alt="">
+                        @endforeach
+                    </div>
+                @endif
+            @endif
             <ul class="flex">
                 <li class="bg-black text-white rounded-xl px-3 py-1 mr-2">
                     <a href="/?category={{ $item->category }}">{{ $item->category }}</a>
