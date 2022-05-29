@@ -1,4 +1,5 @@
 <x-layout>
+
     <div class="border rounded max-w-lg mx-auto p-4 border-t-4 border-t-yellow-500">
         <div class="text-center my-6">
             <h1 class="text-4xl font-bold">Log In</h1>
@@ -41,7 +42,7 @@
                     Login
                 </button>
 
-                <p class="mt-4">Dont have an account? <a href="/register" class="text-blue-400">register</a>
+                <p class="mt-4">Dont have an account? <a href="/register" class="text-blue-400">Register</a>
                 </p>
             </div>
         </form>
