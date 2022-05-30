@@ -21,6 +21,10 @@ class Item extends Model
             $query->where('title', 'like', '%' . request('search') . '%')
                 ->orWhere('description', 'like', '%' . request('search') . '%');
         }
+
+        if ($filters['location'] ?? false) {
+            $query->where('location', 'like', '%' . request('location') . '%');
+        }
     }
 
     //Relationship to User

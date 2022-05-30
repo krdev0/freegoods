@@ -3758,7 +3758,36 @@ for (var i = 0; i < elms.length; i++) {
       page: 'splide__pagination__page bg-white'
     }
   }).mount();
+} //TODO: only on create item page
+
+
+function previewImages() {
+  var preview = document.querySelector('#preview');
+
+  if (this.files) {
+    [].forEach.call(this.files, readAndPreview);
+  }
+
+  function readAndPreview(file) {
+    if (!/\.(jpe?g|png)$/i.test(file.name)) {
+      return alert(file.name + " is not an image");
+    }
+
+    var reader = new FileReader();
+    reader.addEventListener("load", function () {
+      var image = new Image();
+      image.width = 120;
+      image.title = file.name;
+      image.src = this.result;
+      image.classList.add("object-cover", "h-[120px]", "rounded-xl");
+      preview.classList.add("mt-4");
+      preview.appendChild(image);
+    });
+    reader.readAsDataURL(file);
+  }
 }
+
+document.querySelector('#file-input').addEventListener("change", previewImages);
 
 /***/ }),
 

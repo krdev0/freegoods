@@ -9,12 +9,14 @@ class ItemController extends Controller
 {
 
     //Show all listings
-    public function index()
+    public function index(Request $request)
     {
+        $request->flashOnly(['location', 'category']);
+
         return view('items.index', [
             'items' => Item::latest()
-                ->filter(request(['category', 'search']))
-                ->paginate(8),
+                ->filter(request(['category', 'search', 'location']))
+                ->paginate(12),
         ]);
     }
 

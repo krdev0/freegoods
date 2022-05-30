@@ -51,7 +51,7 @@
                 <p class="text-sm text-gray-400 my-2">Where is this item located?</p>
 
                 <select name="location" id="location" class="p-2">
-                    <option value="" selected disabled hidden>Choose City</option>
+                    <option value="">Choose City</option>
                     <option value="ogre" @if (old('location') == 'ogre') {{ 'selected' }} @endif>Ogre</option>
                     <option value="riga" @if (old('location') == 'riga') {{ 'selected' }} @endif>Riga</option>
                 </select>
@@ -66,7 +66,10 @@
                     Images
                 </label>
                 <p class="text-sm text-gray-400 my-2">Upload atleast 1 image.</p>
-                <input type="file" class="w-1/2 border border-gray-200 rounded p-2" name="images[]" multiple />
+                <input id="file-input" type="file" class="w-1/2 border border-gray-200 rounded p-2" name="images[]"
+                    multiple />
+
+                <div id="preview" class="grid grid-cols-3 justify-items-center"></div>
             </div>
 
             @error('images')

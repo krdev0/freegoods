@@ -29,7 +29,7 @@ $images = json_decode($item->images);
                         <div class="splide__list">
                             @foreach ($images as $image)
                                 <div class="splide__slide">
-                                    <img class="h-full w-full object-cover"
+                                    <img class="h-full w-full object-cover max-h-[180px]"
                                         src="{{ $image ? asset('storage/' . $image) : asset('images/pc-front.jpg') }}"
                                         alt="">
                                 </div>
