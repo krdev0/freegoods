@@ -532,6 +532,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mr-2 {
   margin-right: 0.5rem;
 }
+.ml-auto {
+  margin-left: auto;
+}
+.mt-8 {
+  margin-top: 2rem;
+}
 .block {
   display: block;
 }
@@ -704,6 +710,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-b {
   border-bottom-width: 1px;
 }
+.border-b-2 {
+  border-bottom-width: 2px;
+}
 .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
@@ -868,6 +877,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .opacity-90 {
   opacity: 0.9;
+}
+
+.last\:border-0:last-child {
+  border-width: 0px;
 }
 
 .hover\:bg-yellow-600:hover {

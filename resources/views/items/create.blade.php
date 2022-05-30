@@ -1,5 +1,4 @@
 <x-layout>
-
     <div class="border rounded max-w-lg mx-auto p-4 border-t-4 border-t-yellow-500">
         <div class="text-center mb-4">
             <h1 class="text-4xl font-bold">Add new item</h1>
@@ -36,10 +35,10 @@
 
                 <select name="category" id="category" class="p-2">
                     <option value="" selected disabled hidden>Choose Category</option>
-                    <option value="electronics">Electronics</option>
-                    <option value="clothing">Clothing</option>
-                    <option value="home">Home</option>
-                    <option value="kids">Kids</option>
+                    @foreach ($categories as $cat)
+                        <option value="{{ $cat }}"
+                            @if (old('category') == $cat) {{ 'selected' }} @endif>{{ $cat }}</option>
+                    @endforeach
                 </select>
                 @error('category')
                     <p class="text-red-900 text-xs mt-1">{{ $message }}</p>
@@ -51,9 +50,11 @@
                 <p class="text-sm text-gray-400 my-2">Where is this item located?</p>
 
                 <select name="location" id="location" class="p-2">
-                    <option value="">Choose City</option>
-                    <option value="ogre" @if (old('location') == 'ogre') {{ 'selected' }} @endif>Ogre</option>
-                    <option value="riga" @if (old('location') == 'riga') {{ 'selected' }} @endif>Riga</option>
+                    <option value="" selected disabled hidden>Choose City</option>
+                    @foreach ($locations as $loc)
+                        <option value="{{ $loc }}"
+                            @if (old('location') == $loc) {{ 'selected' }} @endif>{{ $loc }}</option>
+                    @endforeach
                 </select>
 
                 @error('location')

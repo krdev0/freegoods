@@ -7,16 +7,23 @@ use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
+    public $locations = ['Ogre', 'Riga', 'Ventspils'];
+    public $categories = ['Clothing', 'Electronics', 'Home', 'Kids'];
 
     //Show all listings
-    public function index(Request $request)
+    public function index(Request $request, Item $item)
     {
+        // TODO: pass image data from item
+        // $images = json_decode($item->images);
+
         $request->flashOnly(['location', 'category']);
 
         return view('items.index', [
             'items' => Item::latest()
                 ->filter(request(['category', 'search', 'location']))
                 ->paginate(12),
+            'categories' => $this->categories,
+            'locations' => $this->locations
         ]);
     }
 
@@ -33,7 +40,10 @@ class ItemController extends Controller
     //Show create form
     public function create()
     {
-        return view('items.create');
+        return view('items.create', [
+            'categories' => $this->categories,
+            'locations' => $this->locations,
+        ]);
     }
 
     //Store item data

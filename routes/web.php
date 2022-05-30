@@ -34,3 +34,5 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 Route::post('/user/authenticate', [UserController::class, 'authenticate']);
 //Manage profile
 Route::get('/profile', [UserController::class, 'manage'])->middleware('auth');
+//Update user information
+Route::post('/user/update', [UserController::class, 'update'])->middleware('auth');

@@ -17,18 +17,20 @@
         <div class="w-1/5">
             <select name="location" id="location" onchange="this.form.submit()">
                 <option value="" selected disabled hidden>Choose City</option>
-                <option value="ogre" @if (old('location') == 'ogre') {{ 'selected' }} @endif>Ogre</option>
-                <option value="riga" @if (old('location') == 'riga') {{ 'selected' }} @endif>Riga</option>
+                @foreach ($locations as $loc)
+                    <option value="{{ $loc }}" @if (old('location') == $loc) {{ 'selected' }} @endif>
+                        {{ $loc }}</option>
+                @endforeach
             </select>
         </div>
 
         <div class="w-1/5">
             <select name="category" id="category" onchange="this.form.submit()">
                 <option value="">Choose Category</option>
-                <option value="electronics">Electronics</option>
-                <option value="clothing">Clothing</option>
-                <option value="home">Home</option>
-                <option value="kids">Kids</option>
+                @foreach ($categories as $cat)
+                    <option value="{{ $cat }}" @if (old('category') == $cat) {{ 'selected' }} @endif>
+                        {{ $cat }}</option>
+                @endforeach
             </select>
         </div>
     </div>

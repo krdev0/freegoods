@@ -85,4 +85,8 @@ class UserController extends Controller
             'items' => auth()->user()->items()->get() //TODO: add all user created items here
         ]);
     }
+
+    public function update()
+    {
+    }
 }
