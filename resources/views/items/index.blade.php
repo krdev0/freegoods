@@ -1,7 +1,7 @@
 <x-layout>
     @include('partials._search')
 
-    <div class="lg:grid lg:grid-cols-3 gap-3 space-y-4 md:space-y-0 mx-4">
+    <div class="lg:grid lg:grid-cols-3 gap-3 space-y-4 md:space-y-0">
 
         @if (count($items) === 0)
             <p>No items found!</p>

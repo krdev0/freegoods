@@ -45,7 +45,7 @@ $images = json_decode($item->images);
             <p class="text-slate-600 text-sm">{{ Str::limit($item->description, 90) }}</p>
 
             <div class="mt-auto flex justify-between">
-                <div class="flex items-center text-sm"><i class="fa-solid fa-location-arrow mr-1"></i>
+                <div class="flex items-center text-sm"><i class="fa-solid fa-location-crosshairs mr-1"></i>
                     <span class="capitalize">{{ $item->location }}</span>
                 </div>
                 <a href="/item/{{ $item->id }}" class="text-sm text-blue-400">View<i
