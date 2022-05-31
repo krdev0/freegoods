@@ -4,7 +4,7 @@
 $images = json_decode($item->images);
 @endphp
 
-<x-card class="relative p-4 rounded-lg">
+<div class="shadow relative p-4 rounded-lg bg-gray-50">
     <div
         class="absolute rounded-lg z-20 left-2 top-2 px-2 py-1 {{ $item->is_available ? 'bg-green-400' : 'bg-red-400' }}">
         <span class="text-white text-sm">{{ $item->is_available ? 'Available' : 'Not available' }}</span>
@@ -38,18 +38,19 @@ $images = json_decode($item->images);
             </div>
         @endif
 
-        <div class="flex flex-col flex-1 mt-4">
-            <h3 class="text-xl">
+        <div class="flex flex-col flex-1 min-h-[140px]">
+            <h3 class="text-xl my-4 font-semibold">
                 <a href="/item/{{ $item->id }}">{{ $item->title }}</a>
             </h3>
-            <p class="text-gray-400 text-sm">{{ Str::limit($item->description, 80) }}</p>
+            <p class="text-slate-600 text-sm">{{ Str::limit($item->description, 90) }}</p>
 
             <div class="mt-auto flex justify-between">
-                <a href="/item/{{ $item->id }}" class="text-sm p-2 bg-yellow-500 text-white">Get Contacts</a>
                 <div class="flex items-center text-sm"><i class="fa-solid fa-location-arrow mr-1"></i>
                     <span class="capitalize">{{ $item->location }}</span>
                 </div>
+                <a href="/item/{{ $item->id }}" class="text-sm text-blue-400">View<i
+                        class="fa-solid fa-angle-right ml-2 text-xs"></i></a>
             </div>
         </div>
     </div>
-</x-card>
+</div>
