@@ -20,7 +20,9 @@
 
 <body>
 
-    @include('partials._nav')
+    <header class="bg-yellow-300 mb-8">
+        @include('partials._nav')
+    </header>
 
     <main class="max-w-6xl m-auto">
         {{ $slot }}

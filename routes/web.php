@@ -15,7 +15,8 @@ Route::post('/item', [ItemController::class, 'store'])->middleware('auth');
 //Single item
 Route::get('/item/{item}', [ItemController::class, 'show']);
 //Edit item form
-Route::get('item/{item}/edit', [ItemController::class, 'edit'])->middleware('auth');
+//TODO: fix layout. currently view is disabled
+// Route::get('item/{item}/edit', [ItemController::class, 'edit'])->middleware('auth');
 //Update item
 Route::put('item/{item}', [ItemController::class, 'update'])->middleware('auth');
 //Delete item

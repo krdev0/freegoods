@@ -1,8 +1,8 @@
-<nav class="flex justify-between items-center mb-4 bg-yellow-300 p-2">
+<nav class="flex justify-between items-center max-w-6xl m-auto p-2">
     <a href="/">
         <span class="text-black-900 font-bold text-4xl">Giveaway</span>
     </a>
-    <ul class="flex space-x-6 mr-6 text-lg">
+    <ul class="flex space-x-6 text-lg">
         @auth
             <li>
                 <span class="font-bold">Welcome, {{ auth()->user()->full_name }}</span>

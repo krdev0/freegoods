@@ -1,4 +1,6 @@
 <x-layout>
+    <h1 class="text-center text-4xl font-bold">Find items you need!</h1>
+
     @include('partials._search')
 
     <div class="lg:grid lg:grid-cols-3 gap-3 space-y-4 md:space-y-0">
