@@ -21,6 +21,7 @@ return new class extends Migration
             $table->longText('description');
             $table->string('category');
             $table->string('location');
+            $table->tinyInteger('is_available')->default(1);
             $table->timestamps();
         });
     }

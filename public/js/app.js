@@ -3785,9 +3785,7 @@ function previewImages() {
     });
     reader.readAsDataURL(file);
   }
-}
-
-document.querySelector('#file-input').addEventListener("change", previewImages);
+} // document.querySelector('#file-input').addEventListener("change", previewImages);
 
 /***/ }),
 

@@ -88,15 +88,23 @@ class ItemController extends Controller
             abort(403, 'Unauthorized Action');
         }
 
-        $formFields = $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'category' => 'required',
-            'location' => 'required'
-        ]);
+        if ($request->has('is_available')) {
+            $formFields = $request->validate([
+                'is_available' => 'required'
+            ]);
 
-        if ($request->hasFile('image')) {
-            $formFields['image'] = $request->file('image')->store('images', 'public');
+            $formFields['is_available'] = $item->is_available ? 0 : 1;
+        } else {
+            $formFields = $request->validate([
+                'title' => 'required',
+                'description' => 'required',
+                'category' => 'required',
+                'location' => 'required',
+            ]);
+
+            if ($request->hasFile('image')) {
+                $formFields['image'] = $request->file('image')->store('images', 'public');
+            }
         }
 
         $item->update($formFields);

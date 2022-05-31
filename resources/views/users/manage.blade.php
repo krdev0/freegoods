@@ -48,12 +48,12 @@
         </form>
 
         <div class="mt-8 w-full table-auto rounded-sm">
-            <h3 class="text-center font-bold text-xl">Manage your items</h3>
+            <h3 class="text-center font-bold text-4xl">Manage your items</h3>
             @unless($items->isEmpty())
                 @foreach ($items as $item)
-                    <div class="flex items-center justify-between w-full border-b-2 last:border-0">
+                    <div class="flex items-center justify-between w-full p-2 last:border-0">
                         <div class="text-lg">
-                            <a href="show.html"> {{ $item->title }} </a>
+                            <span class="font-semibold"> {{ $item->title }} </span>
                         </div>
 
                         <div class="flex ml-auto items-center">
@@ -61,11 +61,19 @@
                                     class="fa-solid fa-pen-to-square"></i>
                                 Edit</a>
 
-                            <form method="POST" action="/item/{{ $item->id }}">
-                                @csrf
-                                @method('DELETE')
-                                <button class="text-red-500"><i class="fa-solid fa-trash"></i> Delete</button>
-                            </form>
+                            @if ($item->is_available)
+                                <form method="POST" action="/item/{{ $item->id }}">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" name="is_available" value="0">
+                                    <button class="font-semibold text-red-600">
+                                        Deactivate Item
+                                    </button>
+                                </form>
+                            @else
+                                <span class="text-gray-300">Item deactivated</span>
+                            @endif
+
                         </div>
                     </div>
                 @endforeach
