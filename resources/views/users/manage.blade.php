@@ -48,30 +48,33 @@
         </form>
 
         <div class="mt-8 w-full table-auto rounded-sm">
-            <h3 class="text-center font-bold text-4xl">Manage your items</h3>
+            <h3 class="text-center font-bold text-4xl mb-6">Manage your items</h3>
             @unless($items->isEmpty())
                 @foreach ($items as $item)
-                    <div class="flex items-center justify-between w-full p-2 last:border-0">
+                    <div class="flex items-center justify-between w-full px-2 py-4 border-b-[1px] last:border-0">
                         <div class="text-lg">
                             <span class="font-semibold"> {{ $item->title }} </span>
                         </div>
 
                         <div class="flex ml-auto items-center">
-                            <a href="/item/{{ $item->id }}/edit" class="text-blue-400 px-6 py-2 rounded-xl"><i
+                            {{-- <a href="/item/{{ $item->id }}/edit" class="text-blue-400 px-6 py-2 rounded-xl"><i
                                     class="fa-solid fa-pen-to-square"></i>
-                                Edit</a>
-
+                                Edit</a> --}}
                             @if ($item->is_available)
                                 <form method="POST" action="/item/{{ $item->id }}">
                                     @csrf
                                     @method('PUT')
                                     <input type="hidden" name="is_available" value="0">
                                     <button class="font-semibold text-red-600">
-                                        Deactivate Item
+                                        <span class="h-[6px] w-[6px] rounded-full bg-red-500"></span>
+                                        Deactivate item
                                     </button>
                                 </form>
                             @else
-                                <span class="text-gray-300">Item deactivated</span>
+                                <div class="text-gray-300 flex items-center gap-2">
+                                    <span class="h-[6px] w-[6px] rounded-full bg-red-500"></span>
+                                    <div>Item deactivated</div>
+                                </div>
                             @endif
 
                         </div>
