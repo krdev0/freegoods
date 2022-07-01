@@ -1,3 +1,0 @@
-<section>
-    HERO BLOCK 
-</section>
